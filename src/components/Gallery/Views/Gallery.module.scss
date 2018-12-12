@@ -1,0 +1,23 @@
+.Container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+$itemSize: 250px;
+.Item {
+  height: $itemSize;
+  width: $itemSize;
+}
+
+.Header {
+  height: 100vh;
+  line-height: 100vh;
+  padding-right: 50px;
+  padding-left: 100px;
+}

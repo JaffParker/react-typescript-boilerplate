@@ -1,7 +1,8 @@
-import { SFC } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React from 'react'
+import { Switch, Route } from 'react-router'
+import { DocumentTitle } from '../Misc/DocumentTitle'
 import Loadable from 'react-loadable'
-import { LoadableLoading } from '../Misc/LoadableLoading'
+import { LoadableLoading } from '../Misc/Loading'
 import last from 'lodash/last'
 
 const Defer = (name: string, importName = 'Component') =>
@@ -12,11 +13,13 @@ const Defer = (name: string, importName = 'Component') =>
       const componentName = last<string>(name.split('/')) || importName
       const Component = loaded[componentName]
       return <Component {...props} />
-    }
+    },
   })
 
-export const Router: SFC = () => (
-  <Switch>
-    <Route path="/" component={Defer('Home')} exact />
-  </Switch>
+export const Router = () => (
+  <DocumentTitle>
+    <Switch>
+      <Route path="/" component={Defer('GalleryRoute')} exact />
+    </Switch>
+  </DocumentTitle>
 )
